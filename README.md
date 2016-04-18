@@ -7,9 +7,9 @@ import Logger from 'magnet-bunyan';
 import Server from 'magnet-spdy';
 import Session from 'magnet-session';
 import Router from 'magnet-router';
-import Joi from 'magnet-joi';
+import Respond from 'magnet-respond';
 
-let app = await magnet([Config, Logger, Server, Session, Joi, Router]);
+let app = await magnet([Config, Logger, Server, Session, Respond, Router]);
 ```
 
 controllers/todo.js
@@ -21,16 +21,16 @@ export default function todo({
 }) {
   router
 
-  .post(
-    '/todos',
-
-    validation('body', {
-      title: Joi.any(),
-    }),
-
-    async (ctx) => {
-      ctx.body = 'success';
+  .get(
+    '/bookings',
+    async function index(ctx) {
+      try {
+        ctx.body = await app.models.Booking.find().lean();
+      } catch (err) {
+        app.log.error(err);
+        ctx.respond.internalServerError();
+      }
     }
-  );
+  )
 }
 ```
