@@ -22,14 +22,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-/**
- * Inspired by https://github.com/hapijs/boom
- * TODO:
- * - Create custom error
- * - Unauthorized can set header
- * - Hide >= 500
- */
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Inspired by https://github.com/hapijs/boom
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * TODO:
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * - Create custom error
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * - Unauthorized can set header
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * - Hide >= 500
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
 
 
 var statusCode = {
@@ -140,6 +139,7 @@ var Respond = function (_Base) {
                             for (_iterator = Object.keys(statusCode)[Symbol.iterator](); !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
                               _loop();
                             }
+
                             _context.next = 13;
                             break;
 
@@ -174,12 +174,17 @@ var Respond = function (_Base) {
                             return _context.finish(13);
 
                           case 21:
+                            respond.image = function (filename, body) {
+                              ctx.type = 'image/' + filename.split('.').pop();
+                              ctx.body = body;
+                            };
+
                             Object.assign(ctx, { respond: respond });
 
-                            _context.next = 24;
+                            _context.next = 25;
                             return next();
 
-                          case 24:
+                          case 25:
                           case 'end':
                             return _context.stop();
                         }

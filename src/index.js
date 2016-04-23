@@ -1,4 +1,3 @@
-import Base from 'magnet-core/dist/base';
 /**
  * Inspired by https://github.com/hapijs/boom
  * TODO:
@@ -6,6 +5,7 @@ import Base from 'magnet-core/dist/base';
  * - Unauthorized can set header
  * - Hide >= 500
  */
+import Base from 'magnet-core/dist/base';
 import camelCase from 'lodash/camelcase';
 
 const statusCode = {
@@ -84,6 +84,12 @@ export default class Respond extends Base {
           ctx.body = message || statusCode[code];
         };
       }
+
+      respond.image = (filename, body) => {
+        ctx.type = `image/${filename.split('.').pop()}`;
+        ctx.body = body;
+      };
+
       Object.assign(ctx, { respond });
 
       await next();
