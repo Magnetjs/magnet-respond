@@ -1,6 +1,6 @@
 {
   "name": "magnet-respond",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Magnet's Koa standard respond",
   "main": "dist/index.js",
   "scripts": {

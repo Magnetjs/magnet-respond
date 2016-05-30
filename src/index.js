@@ -6,7 +6,7 @@
  * - Hide >= 500
  */
 import Base from 'magnet-core/dist/base';
-import camelCase from 'lodash/camelcase';
+import camelCase from 'lodash/camelCase';
 
 const statusCode = {
   100: 'Continue',
