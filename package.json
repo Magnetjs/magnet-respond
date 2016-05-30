@@ -1,7 +1,7 @@
 {
   "name": "magnet-respond",
-  "version": "0.2.1",
-  "description": "Magnet's Koa standard respond",
+  "version": "0.2.2",
+  "description": "Magnet's Koa standard respond for http",
   "main": "dist/index.js",
   "scripts": {
     "build": "babel src --out-dir dist",

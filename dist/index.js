@@ -10,9 +10,9 @@ var _base = require('magnet-core/dist/base');
 
 var _base2 = _interopRequireDefault(_base);
 
-var _camelcase = require('lodash/camelcase');
+var _camelCase = require('lodash/camelCase');
 
-var _camelcase2 = _interopRequireDefault(_camelcase);
+var _camelCase2 = _interopRequireDefault(_camelCase);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -130,7 +130,7 @@ var Respond = function (_Base) {
                                 ctx.body = message || statusCode[code];
                               };
 
-                              respond[(0, _camelcase2.default)(statusCode[code])] = function (message) {
+                              respond[(0, _camelCase2.default)(statusCode[code])] = function (message) {
                                 ctx.status = parseInt(code, 10);
                                 ctx.body = message || statusCode[code];
                               };
